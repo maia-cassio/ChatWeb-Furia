@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FURIA CS:GO</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Logo -->
+    <div class="logo">
+        <img src="/img/LogoFuria.jpeg" alt="FURIA Logo" id="logo">
+    </div>
+
+    <div id="bem-vindo">
+  <h1>Bem-vindo à página da FURIA CS:GO!</h1>
+  <h1>O WEB-CHAT FAVORITO DOS FÃNS!</h1>
+
+</div>
+
+    <!-- Barra de navegação -->
+    <nav class="navbar">
+  <ul>
+    <li><a href="#inicio">Início</a></li>
+    <li><a href="#jogadores">Jogadores</a></li>
+    <li><a href="#agenda">Agenda</a></li>
+    <li><a href="#curiosidades">Curiosidades</a></li>
+    <li><a href="#noticias">Notícias</a></li>
+    <li><a href="#quiz">Quiz</a></li>
+  </ul>
+</nav>
+
+
+    
+    <!-- Vídeo com a música do CS:GO -->
+<div class="video-container">
+    <video id="furia-video" autoplay loop muted>
+        <source src="/img/Furia.Video.mp4" type="video/mp4">
+    </video>
+    <audio id="csgo-music" controls autoplay loop>
+        <source src="/img/CS.GO.mp3" type="audio/mp3">
+    </audio>
+</div>
+
+<script>
+    // Acessa o elemento de áudio
+    const musica = document.getElementById('csgo-music');
+
+    // Define o volume da música para 30% (0.3 é 30% do volume máximo)
+    musica.volume = 0.05;
+</script>
+    
+
+<!-- Botão de abrir o Chatbot (com logo da FURIA) -->
+<button id="chatbot-toggle" class="chatbot-toggle">
+  <img src="/img/BotãoFuria.webp" alt="Abrir Chat" class="chatbot-icon">
+</button>
+
+<!-- Estrutura do Chatbot -->
+<div id="chatbot" class="chatbot">
+  <div class="chatbot-header">
+    <h2>FURIAFÃ CS:GO</h2>
+    <button id="chatbot-close" class="chatbot-close">✖</button>
+  </div>
+  <div id="chatbot-body" class="chatbot-body">
+    <div id="chat-messages" class="chat-messages">
+      <div class="bot-message">
+        Olá fã da Furia CS GO!<br>
+        Aqui vamos aprender e navegar um pouco mais sobre a história e informações sobre o time.<br>
+        Nos siga nessa aventura! 🚀
+      </div>
+    </div>
+    <div id="chat-options" class="chat-options">
+      <button onclick="mostrarNovidades()">📣 Novidades 2025</button>
+      <button onclick="mostrarAgenda()">📅 Agenda 2025</button>
+      <button onclick="mostrarTitulos()">🏆 Títulos</button>
+      <button onclick="mostrarJogadores()">🎯 Jogadores</button>
+      <button onclick="mostrarLoja()">🛒 Loja</button>
+      <button onclick="mostrarSuporte()">💬 Suporte</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const chatbotToggle = document.getElementById('chatbot-toggle');
+const chatbot = document.getElementById('chatbot');
+const chatbotClose = document.getElementById('chatbot-close');
+const chatMessages = document.getElementById('chat-messages');
+
+chatbotToggle.addEventListener('click', () => {
+  chatbot.style.display = 'flex';
+});
+
+chatbotClose.addEventListener('click', () => {
+  chatbot.style.display = 'none';
+});
+
+function adicionarMensagem(texto) {
+  const mensagem = document.createElement('div');
+  mensagem.className = 'bot-message';
+  mensagem.innerHTML = texto;
+  chatMessages.appendChild(mensagem);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function mostrarNovidades() {
+  adicionarMensagem(`<strong>Novidades 2025:</strong><br>
+  - Janeiro: Nova lineup oficial anunciada.<br>
+  - Fevereiro: Classificação para o IEM Katowice.<br>
+  - Março: Treinamento na Europa.<br>
+  - Abril: Participação no PGL Bucharest Major.<br>
+  - Junho: Anúncio de nova parceria com Red Bull.<br>
+  - Agosto: Entrada em novos campeonatos internacionais.<br>
+  - Outubro: Evento presencial no Brasil.<br>
+  - Dezembro: Temporada finalizada com top 5 mundial.`);
+}
+
+function mostrarAgenda() {
+  adicionarMensagem(`<strong>Agenda FURIA 2025:</strong><br>
+  - Janeiro: ESL Challenger League.<br>
+  - Fevereiro: BLAST Spring Groups.<br>
+  - Março: IEM Katowice.<br>
+  - Abril: PGL Major Bucharest.<br>
+  - Maio: ESL Pro League.<br>
+  - Junho: BLAST Spring Finals.<br>
+  - Agosto: ESL One Cologne.<br>
+  - Outubro: ESL Pro League.<br>
+  - Novembro: BLAST Fall Finals.<br>
+  - Dezembro: PGL Major Stockholm.`);
+}
+
+function mostrarTitulos() {
+  adicionarMensagem(`<strong>Títulos FURIA (2017–2025):</strong><br>
+  - 2018: GG.Bet Ascensão Trophy<br>
+  - 2019: EMF CS:GO World Cup<br>
+  - 2020: ESL Pro League North America<br>
+  - 2021: DreamHack Masters Spring<br>
+  - 2022: Elisa Masters Espoo<br>
+  - 2023: BLAST Premier Fall Finals<br>
+  - 2024: Campeonato Sul-Americano de CS:GO<br>
+  <em>Detalhes: Times vencidos, MVPs e maiores feitos disponíveis na página oficial.</em>`);
+}
+
+function mostrarJogadores() {
+  adicionarMensagem(`<strong>Jogadores e Histórico:</strong><br>
+  - Fallen: Gabriel "FalleN" Toledo é um dos maiores nomes do CS brasileiro. Começou em 2003, passou por equipes como KaBuM!, Keyd, Luminosity e SK Gaming, onde conquistou dois Majors. Liderou o MIBR, jogou pela Team Liquid e criou o projeto "The Last Dance" na Imperial. Fundador da Games Academy e da Fallen Gear, também é referência fora dos servidores. Em 2023, juntou-se à FURIA para buscar novos títulos e reforçar sua história como líder, AWPer e ícone mundial do eSports. Reconhecido pela HLTV e pela Forbes, FalleN moldou o cenário brasileiro e segue inspirando gerações com sua trajetória vencedora.<br>
+  - KSCERATO: ​Kaike "KSCERATO" Cerato é um dos pilares da FURIA desde 2018, destacando-se como um dos melhores riflers do cenário internacional. Com atuações consistentes, ajudou a equipe a alcançar semifinais em Majors como o IEM Rio 2022 e a conquistar títulos como a ESL Pro League Season 12 NA. Em julho de 2024, renovou contrato com a FURIA por mais três anos, reforçando seu compromisso com o time. Sua habilidade e lealdade o tornam peça-chave na busca por títulos e na consolidação da FURIA como potência global no CS2<br>
+  - Molodoy:​Danil "molodoy" Golubenko é um talentoso jogador de CS:GO que se destacou na equipe russa AMKAL Esports. Em 11 de abril de 2025, foi anunciado como novo integrante da FURIA, assumindo a função de AWPer no lugar de chelo. Sua chegada visa fortalecer o elenco liderado por FalleN, ao lado de KSCERATO e yuurih, trazendo nova energia e precisão ao time brasileiro. A contratação de molodoy marca uma nova fase na FURIA, que busca consolidar-se como uma potência global no cenário competitivo de Counter-Strike. <br>
+  - Yekindar: ​Mareks "YEKINDAR" Gaļinskis é um jogador profissional de Counter-Strike da Letônia, nascido em 4 de outubro de 1999. Iniciou sua carreira em 2017 pela equipe Wolsung e ganhou destaque com passagens por Elements Pro Gaming, pro100 e Virtus.pro, onde conquistou títulos como o Flashpoint Season 2 e a DreamHack Open December 2020. Em 2022, atuou como stand-in na Team Liquid, sendo efetivado posteriormente e alcançando finais em torneios como a ESL Pro League Season 16. Em abril de 2025, foi anunciado como novo jogador da FURIA, trazendo sua experiência e agressividade como entry fragger para fortalecer o elenco brasileiro.​<br>
+  - Yuurih: ​Yuri "yuurih" Santos é um dos principais jogadores de Counter-Strike do Brasil, atuando como rifler na FURIA desde 2017. Reconhecido por sua consistência e impacto, foi eleito o 14º melhor jogador do mundo pela HLTV em 2020 e o 19º em 2022. Em março de 2023, alcançou a marca de 1.000 mapas disputados pela FURIA, demonstrando sua longevidade e dedicação à equipe. Com títulos como a ESL Pro League Season 12 NA, IEM New York 2020 e DreamHack Masters Spring 2020, yuurih continua sendo peça-chave na busca da FURIA por conquistas no cenário internacional.<br>
+  - Sidde (coach): ​Sidnei "sidde" Macedo, nascido em 6 de fevereiro de 1997, é um treinador brasileiro de Counter-Strike 2. Ele iniciou sua trajetória como treinador na equipe ODDIK. Em janeiro de 2023, ingressou na FURIA como treinador assistente. Após um período de um ano e meio, em julho de 2024, foi promovido a treinador principal, sucedendo Nicholas "guerri" Nogueira, que assumiu a posição de Head de Esports da organização.Desde então, sidde tem liderado a FURIA em torneios internacionais, como o Esports World Cup 2024 e o PGL Bucharest 2025. Durante sua gestão, demonstrou capacidade de adaptação e liderança, sendo reconhecido por sua habilidade em motivar a equipe e implementar estratégias eficazes. ​
+Liquipedia Com uma abordagem moderna e comunicativa, sidde continua a contribuir significativamente para o desenvolvimento e sucesso da FURIA no cenário competitivo de Counter-Strike..`);
+}
+
+function mostrarLoja() {
+  adicionarMensagem(`🛒 Visite nossa loja oficial e adquira itens exclusivos:<br>
+  <a href="https://loja.furia.gg/" target="_blank">https://loja.furia.gg/</a>`);
+}
+
+function mostrarSuporte() {
+  adicionarMensagem(`💬 Acesse o suporte oficial:<br>
+  <a href="https://www.furia.gg/" target="_blank">https://www.furia.gg/</a>`);
+}
+</script>
+
+
+
+
+
+
+    <div id="jogadores" class="section tabcontent">
+        <h2>Jogadores</h2>
+        <!-- Cards dos jogadores aqui -->
+        <section id="jogadores">
+  <!-- Card para FalleN -->
+  <div class="card">
+    <div class="card-front">
+      <img src="/img/fallen.PNG" alt="FalleN" class="player-img">
+      <h3 class="player-nick">FalleN</h3>
+    </div>
+    <div class="card-back">
+      <h4>Nome: Gabriel "FalleN" Toledo</h4>
+      <p>Posição: IGL</p>
+      <p>Nacionalidade: Brasileira</p>
+      <canvas id="grafico-fallen"></canvas>
+      <p>FalleN é um dos maiores jogadores da história do CS:GO, conhecido por sua incrível leitura de jogo e habilidades de liderança.</p>
+      <a href="https://www.furia.gg" target="_blank" class="saiba-mais">Saiba mais</a>
+    </div>
+  </div>
+
+  <!-- Card para KSCERATO -->
+  <div class="card">
+    <div class="card-front">
+      <img src="/img/KSCERATO.png" alt="KSCERATO" class="player-img">
+      <h3 class="player-nick">KSCERATO</h3>
+    </div>
+    <div class="card-back">
+      <h4>Nome: Yuri "KSCERATO" Santos</h4>
+      <p>Posição: Rifler</p>
+      <p>Nacionalidade: Brasileira</p>
+      <canvas id="grafico-kscerato"></canvas>
+      <p>KSCERATO é um dos melhores riflers do Brasil, com grande habilidade em jogos de alta pressão.</p>
+      <a href="https://www.furia.gg" target="_blank" class="saiba-mais">Saiba mais</a>
+    </div>
+  </div>
+
+  <!-- Card para Molodoy -->
+  <div class="card">
+    <div class="card-front">
+      <img src="/img/molodoy.jpg" alt="Molodoy" class="player-img">
+      <h3 class="player-nick">Molodoy</h3>
+    </div>
+    <div class="card-back">
+      <h4>Nome: Gabriel "Molodoy" Souza</h4>
+      <p>Posição: Rifler</p>
+      <p>Nacionalidade: Brasileira</p>
+      <canvas id="grafico-molodoy"></canvas>
+      <p>Molodoy é um talento emergente, trazendo frescor e estratégia ao time da FURIA.</p>
+      <a href="https://www.furia.gg" target="_blank" class="saiba-mais">Saiba mais</a>
+    </div>
+  </div>
+
+  <!-- Card para Yuurih -->
+  <div class="card">
+    <div class="card-front">
+      <img src="/img/yuurih.png" alt="Yuurih" class="player-img">
+      <h3 class="player-nick">Yuurih</h3>
+    </div>
+    <div class="card-back">
+      <h4>Nome: André "Yuurih" Campos</h4>
+      <p>Posição: Rifler</p>
+      <p>Nacionalidade: Brasileira</p>
+      <canvas id="grafico-yuurih"></canvas>
+      <p>Yuurih é um dos jogadores mais habilidosos da FURIA, conhecido por sua versatilidade no jogo.</p>
+      <a href="https://www.furia.gg" target="_blank" class="saiba-mais">Saiba mais</a>
+    </div>
+  </div>
+
+  <!-- Card para Yekindar -->
+  <div class="card">
+    <div class="card-front">
+      <img src="/img/Yekindra.png" alt="Yekindar" class="player-img">
+      <h3 class="player-nick">Yekindar</h3>
+    </div>
+    <div class="card-back">
+      <h4>Nome: Mareks "Yekindar" Gaļinskis</h4>
+      <p>Posição: Entry Fragger</p>
+      <p>Nacionalidade: Letã</p>
+      <canvas id="grafico-yekindar"></canvas>
+      <p>Yekindar é um jogador agressivo e rápido, sempre liderando os ataques da FURIA com intensidade.</p>
+      <a href="https://www.furia.gg" target="_blank" class="saiba-mais">Saiba mais</a>
+    </div>
+  </div>
+
+  <!-- Card para Siddd (Coach) -->
+  <div class="card">
+    <div class="card-front">
+      <img src="/img/sidde.jpg" alt="Siddd" class="player-img">
+      <h3 class="player-nick">Siddd</h3>
+    </div>
+    <div class="card-back">
+      <h4>Nome: Sidnei "Siddd" Oliveira</h4>
+      <p>Posição: Coach</p>
+      <p>Nacionalidade: Brasileira</p>
+      <canvas id="grafico-siddd"></canvas>
+      <p>Siddd é o coach da FURIA, conhecido por sua experiência e liderança estratégica no time.</p>
+      <a href="https://www.furia.gg" target="_blank" class="saiba-mais">Saiba mais</a>
+    </div>
+  </div>
+</section>
+
+    </div>
+ <!-- Agenda dos jogos aqui -->
+    <div id="agenda" class="section tabcontent">
+        <h2>Agenda</h2>
+    </div>
+
+    <section id="agenda" style="padding: 50px 20px; text-align: center;">
+  <h2 style="color: white; font-size: 2rem; margin-bottom: 30px;">Agenda FURIA CS:GO (2018–2025)</h2>
+
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+
+    <div class="agenda-card">
+      <h3>PGL Bucharest 2025 - 09/04/2025</h3>
+      <p>FURIA vs The MongolZ</p>
+      <p><strong>Resultado:</strong> Derrota (0:2)</p>
+      <p>Resumo: FURIA perdeu para The MongolZ em confronto decisivo.</p>
+    </div>
+
+    <div class="agenda-card">
+      <h3>PGL Bucharest 2025 - 08/04/2025</h3>
+      <p>FURIA vs Virtus.pro</p>
+      <p><strong>Resultado:</strong> Derrota (0:2)</p>
+      <p>Resumo: Virtus.pro superou a FURIA com ótima performance.</p>
+    </div>
+
+    <div class="agenda-card">
+      <h3>PGL Bucharest 2025 - 07/04/2025</h3>
+      <p>FURIA vs Complexity</p>
+      <p><strong>Resultado:</strong> Derrota (1:2)</p>
+      <p>Resumo: FURIA lutou muito, mas caiu diante da Complexity.</p>
+    </div>
+
+    <div class="agenda-card">
+      <h3>PGL Bucharest 2025 - 06/04/2025</h3>
+      <p>FURIA vs Betclic Apogee Esports</p>
+      <p><strong>Resultado:</strong> Vitória (2:0)</p>
+      <p>Resumo: FURIA dominou o confronto e venceu com facilidade.</p>
+    </div>
+
+    <div class="agenda-card">
+      <h3>BLAST Open Spring 2025 - 22/03/2025</h3>
+      <p>FURIA vs M80</p>
+      <p><strong>Resultado:</strong> Derrota (1:2)</p>
+      <p>Resumo: Após partida acirrada, M80 levou a melhor.</p>
+    </div>
+
+    <div class="agenda-card">
+      <h3>BLAST Open Spring 2025 - 20/03/2025</h3>
+      <p>FURIA vs Natus Vincere</p>
+      <p><strong>Resultado:</strong> Derrota (0:2)</p>
+      <p>Resumo: NAVI mostrou toda sua força contra a FURIA.</p>
+    </div>
+
+    <div class="agenda-card">
+      <h3>ESL Pro League Season 21 - 10/03/2025</h3>
+      <p>FURIA vs Falcons</p>
+      <p><strong>Resultado:</strong> Derrota (1:2)</p>
+      <p>Resumo: Falcons venceu em uma série equilibrada.</p>
+    </div>
+
+    <div class="agenda-card">
+      <h3>ESL Pro League Season 21 - 09/03/2025</h3>
+      <p>FURIA vs MIBR</p>
+      <p><strong>Resultado:</strong> Vitória (2:1)</p>
+      <p>Resumo: Clássico brasileiro vencido pela FURIA!</p>
+    </div>
+
+    <div class="agenda-card">
+      <h3>ESL Pro League Season 21 - 08/03/2025</h3>
+      <p>FURIA vs Team Liquid</p>
+      <p><strong>Resultado:</strong> Derrota (0:2)</p>
+      <p>Resumo: Team Liquid foi superior nesse confronto.</p>
+    </div>
+
+    <div class="agenda-card">
+      <h3>ESL Pro League Season 21 - 07/03/2025</h3>
+      <p>FURIA vs MOUZ</p>
+      <p><strong>Resultado:</strong> Derrota (1:2)</p>
+      <p>Resumo: MOUZ venceu em série difícil para FURIA.</p>
+    </div>
+
+    <div class="agenda-card">
+      <h3>ESL Pro League Season 21 - 05/03/2025</h3>
+      <p>FURIA vs M80</p>
+      <p><strong>Resultado:</strong> Vitória (2:1)</p>
+      <p>Resumo: Vitória da FURIA com grande performance coletiva.</p>
+    </div>
+
+    <div class="agenda-card">
+      <h3>ESL Pro League Season 21 - 04/03/2025</h3>
+      <p>FURIA vs NRG</p>
+      <p><strong>Resultado:</strong> Vitória (2:1)</p>
+      <p>Resumo: FURIA dominou o final da série contra NRG.</p>
+    </div>
+
+    <div class="agenda-card">
+      <h3>ESL Pro League Season 21 - 03/03/2025</h3>
+      <p>FURIA vs MIBR</p>
+      <p><strong>Resultado:</strong> Derrota (0:2)</p>
+      <p>Resumo: MIBR levou a melhor no clássico brasileiro.</p>
+    </div>
+
+    <div class="agenda-card">
+      <h3>ESL Pro League Season 21 - 02/03/2025</h3>
+      <p>FURIA vs SAW</p>
+      <p><strong>Resultado:</strong> Derrota (1:2)</p>
+      <p>Resumo: Derrota apertada contra a equipe portuguesa SAW.</p>
+    </div>
+
+    <div class="agenda-card">
+      <h3>ESL Pro League Season 21 - 01/03/2025</h3>
+      <p>FURIA vs Lynn Vision Gaming</p>
+      <p><strong>Resultado:</strong> Vitória (2:0)</p>
+      <p>Resumo: FURIA vence com facilidade na estreia do campeonato.</p>
+    </div>
+
+  </div>
+</section>
+
+
+    </div>
+<!-- Notícias relevantes da FURIA CS:GO -->
+    <div id="noticias" class="section tabcontent">
+        <h2>Notícias</h2>
+    </div>
+    <section id="curiosidades" class="section">
+  <h2 class="section-title">Curiosidades da FURIA Esports</h2>
+  <div class="curiosidades-container">
+    <div class="curiosidade-card">
+      <h3>Fundação e Crescimento Rápido</h3>
+      <p>A FURIA foi fundada em agosto de 2017 por Jaime Pádua, André Akkari e Cris Guedes, expandindo rapidamente para várias modalidades.</p>
+    </div>
+    <div class="curiosidade-card">
+      <h3>Reconhecimento Internacional</h3>
+      <p>Em 2022, a FURIA foi eleita a quinta maior organização de esports do mundo pelo portal Nerd Street.</p>
+    </div>
+    <div class="curiosidade-card">
+      <h3>Conquistas no CS:GO</h3>
+      <p>A equipe de CS:GO disputou mais de 550 partidas, com uma taxa de vitória de 60%, conquistando 19 títulos até 2025.</p>
+    </div>
+    <div class="curiosidade-card">
+      <h3>Expansão Global</h3>
+      <p>Além de sua base no Brasil, a FURIA abriu sedes nos Estados Unidos e em Malta para ampliar seu alcance competitivo.</p>
+    </div>
+    <div class="curiosidade-card">
+      <h3>Diversificação Esportiva</h3>
+      <p>Em 2024, a FURIA estreou no futebol 7 e em 2025 firmou parceria com Neymar para liderar a equipe na Kings World Cup.</p>
+    </div>
+    <div class="curiosidade-card">
+      <h3>Parcerias Estratégicas</h3>
+      <p>Red Bull, PokerStars, Lenovo e Hellmann's são algumas das grandes marcas que patrocinam a FURIA.</p>
+    </div>
+    <div class="curiosidade-card">
+      <h3>Estilo e Moda</h3>
+      <p>A FURIA lançou sua linha de roupas gamer, levando seu estilo dos servidores para as ruas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Formulário de Noticias aqui -->
+    <div id="noticias" class="section tabcontent">
+        <h2>Quiz</h2>
+    </div>
+
+      <!-- Seção de notícias -->
+    <section id="noticias" class="section">
+  <h2>Notícias da FURIA CS:GO</h2>
+  <div class="news-container">
+    
+    <div class="news-card">
+      <h3>FURIA chega às semifinais do IEM Rio Major 2022</h3>
+      <p>A equipe fez história em casa ao chegar às semifinais do Major no Rio de Janeiro, com apoio massivo da torcida brasileira.</p>
+      <a href="https://pt.wikipedia.org/wiki/Furia_Esports" target="_blank" class="read-more">Ler Mais</a>
+    </div>
+
+    <div class="news-card">
+      <h3>FURIA vence a ESL Pro League Season 12 NA</h3>
+      <p>Em 2020, a FURIA dominou a 100 Thieves na final e conquistou o título da Pro League na América do Norte.</p>
+      <a href="https://pt.wikipedia.org/wiki/Furia_Esports" target="_blank" class="read-more">Ler Mais</a>
+    </div>
+
+    <div class="news-card">
+      <h3>FURIA estreia com vitória no PGL Major Stockholm 2021</h3>
+      <p>Durante o Major em Estocolmo, a FURIA começou forte, garantindo classificação para os playoffs.</p>
+      <a href="https://liquipedia.net/counterstrike/FURIA_Esports" target="_blank" class="read-more">Ler Mais</a>
+    </div>
+
+    <div class="news-card">
+      <h3>FalleN é anunciado como reforço da FURIA em 2023</h3>
+      <p>O veterano FalleN se junta à FURIA para liderar o projeto brasileiro rumo a novos títulos internacionais.</p>
+      <a href="https://globoesporte.globo.com/esports/csgo/noticia/2023/07/03/csgo-furia-anuncia-fallen.ghtml" target="_blank" class="read-more">Ler Mais</a>
+    </div>
+
+    <div class="news-card">
+      <h3>FURIA conquista o título da Elisa Masters Espoo 2022</h3>
+      <p>Em uma performance dominante, a FURIA derrotou a BIG na final e conquistou seu primeiro título internacional europeu.</p>
+      <a href="https://liquipedia.net/counterstrike/Elisa_Masters_Espoo/2022" target="_blank" class="read-more">Ler Mais</a>
+    </div>
+
+  </div>
+</section>
+
+     <!-- Formulário de quiz aqui -->
+    <div id="quiz" class="section tabcontent">
+        <h2>Quiz</h2>
+    </div>
+    <section id="quiz" class="section">
+  <h2>Quiz da FURIA CS:GO</h2>
+  <div class="quiz-container">
+    <div id="quiz-box">
+      <p id="question">Carregando pergunta...</p>
+      <input type="text" id="answer-input" placeholder="Digite: verdadeiro ou falso">
+      <button id="submit-answer">Enviar</button>
+      <p id="feedback"></p>
+      <p id="score">Pontuação: 0</p>
+    </div>
+  </div>
+</section>
+
+<script>
+const questions = [
+  { question: "FURIA foi fundada em 2017.", answer: "verdadeiro" },
+  { question: "FalleN entrou na FURIA em 2023.", answer: "verdadeiro" },
+  { question: "KSCERATO sempre jogou como AWP da FURIA.", answer: "falso" },
+  { question: "FURIA ganhou o IEM Rio Major em 2022.", answer: "falso" },
+  { question: "Yuurih é um dos jogadores fundadores da equipe.", answer: "verdadeiro" },
+  { question: "FURIA tem sede nos Estados Unidos atualmente.", answer: "verdadeiro" },
+  { question: "Sidde é o atual técnico da FURIA em 2025.", answer: "verdadeiro" },
+  { question: "Molodoy é um reforço recente na equipe.", answer: "verdadeiro" },
+  { question: "FURIA venceu a ESL Pro League Season 12 NA.", answer: "verdadeiro" },
+  { question: "FURIA conquistou o PGL Major Stockholm.", answer: "falso" },
+  { question: "O uniforme da FURIA tradicionalmente é azul.", answer: "falso" },
+  { question: "FURIA é famosa pelo estilo de jogo agressivo.", answer: "verdadeiro" },
+  { question: "Yekindar é de origem brasileira.", answer: "falso" },
+  { question: "FURIA venceu a Elisa Masters Espoo 2022.", answer: "verdadeiro" },
+  { question: "FURIA perdeu para NAVI na IEM Katowice 2020.", answer: "verdadeiro" },
+  { question: "FURIA nunca participou da BLAST Premier.", answer: "falso" },
+  { question: "FURIA jogou contra G2 Esports em 2024.", answer: "verdadeiro" },
+  { question: "FURIA CS:GO também tem uma equipe feminina ativa.", answer: "verdadeiro" },
+  { question: "Molodoy jogava na Astralis antes da FURIA.", answer: "falso" },
+  { question: "KSCERATO é conhecido como 'Clutch King'.", answer: "verdadeiro" },
+  { question: "FalleN jogou na SK Gaming antes da FURIA.", answer: "verdadeiro" },
+  { question: "FURIA ganhou mais de 5 campeonatos internacionais.", answer: "verdadeiro" },
+  { question: "Yuurih joga como suporte principal.", answer: "falso" },
+  { question: "FURIA nunca venceu a DreamHack Masters.", answer: "verdadeiro" },
+  { question: "FURIA é patrocinada pela Red Bull.", answer: "falso" },
+  { question: "FURIA jogou a ESL Cologne 2021.", answer: "verdadeiro" },
+  { question: "FURIA foi a primeira organização brasileira a chegar ao Top 1 do ranking HLTV.", answer: "falso" },
+  { question: "FalleN já foi considerado o melhor IGL do mundo.", answer: "verdadeiro" },
+  { question: "Sidde já treinou a FURIA Academy.", answer: "verdadeiro" },
+  { question: "FURIA venceu o Major da PGL Copenhagen 2025.", answer: "falso" }
+];
+
+let currentQuestion = 0;
+let score = 0;
+
+// Embaralhar perguntas
+questions.sort(() => 0.5 - Math.random());
+
+function loadQuestion() {
+  document.getElementById('question').textContent = questions[currentQuestion].question;
+  document.getElementById('answer-input').value = '';
+}
+
+function checkAnswer() {
+  const userAnswer = document.getElementById('answer-input').value.trim().toLowerCase();
+  const correctAnswer = questions[currentQuestion].answer;
+
+  if (userAnswer === correctAnswer) {
+    document.getElementById('feedback').textContent = "Resposta correta! 🎯";
+    score += 50;
+  } else {
+    document.getElementById('feedback').textContent = "Resposta errada! ❌";
+  }
+
+  document.getElementById('score').textContent = `Pontuação: ${score}`;
+  currentQuestion++;
+
+  if (currentQuestion < questions.length) {
+    setTimeout(() => {
+      document.getElementById('feedback').textContent = "";
+      loadQuestion();
+    }, 1000);
+  } else {
+    document.getElementById('question').textContent = "Quiz finalizado! Parabéns!";
+    document.getElementById('answer-input').style.display = "none";
+    document.getElementById('submit-answer').style.display = "none";
+  }
+}
+
+document.getElementById('submit-answer').addEventListener('click', checkAnswer);
+
+document.getElementById('answer-input').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') {
+    checkAnswer();
+  }
+});
+
+window.onload = loadQuestion;
+</script>
+
+
+    <script src="script.js"></script>
+</body>
+  <!-- Conteúdo do seu HTML, incluindo a seção de jogadores -->
+
+  <!-- Início do código JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const ctxFallen = document.getElementById('grafico-fallen').getContext('2d');
+    const graficoFallen = new Chart(ctxFallen, {
+      type: 'line',
+      data: {
+        labels: ['2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025'],
+        datasets: [{
+          label: 'Desempenho de FalleN',
+          data: [70, 75, 80, 85, 80, 82, 88, 90], // Dados de exemplo (alterar conforme o desempenho real)
+          borderColor: function(context) {
+            const value = context.dataset.data[context.dataIndex];
+            if (value < 75) return 'red'; // Vermelho para ruim
+            if (value >= 75 && value < 85) return 'yellow'; // Amarelo para bom
+            return 'green'; // Verde para muito bom
+          },
+          backgroundColor: 'rgba(0, 0, 0, 0)',
+          borderWidth: 3,
+          tension: 0.4
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 100
+          }
+        }
+      }
+    });
+
+    // Gráfico para KSCERATO
+    const ctxKscerato = document.getElementById('grafico-kscerato').getContext('2d');
+    const graficoKscerato = new Chart(ctxKscerato, {
+      type: 'line',
+      data: {
+        labels: ['2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025'],
+        datasets: [{
+          label: 'Desempenho de KSCERATO',
+          data: [65, 70, 75, 80, 85, 88, 90, 92], // Dados de exemplo (alterar conforme o desempenho real)
+          borderColor: function(context) {
+            const value = context.dataset.data[context.dataIndex];
+            if (value < 75) return 'red'; // Vermelho para ruim
+            if (value >= 75 && value < 85) return 'yellow'; // Amarelo para bom
+            return 'green'; // Verde para muito bom
+          },
+          backgroundColor: 'rgba(0, 0, 0, 0)',
+          borderWidth: 3,
+          tension: 0.4
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 100
+          }
+        }
+      }
+    });
+
+    const ctxMolodoy = document.getElementById('grafico-molodoy').getContext('2d');
+    const graficoMolodoy = new Chart(ctxMolodoy, {
+      type: 'line',
+      data: {
+        labels: ['2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025'],
+        datasets: [{
+          label: 'Desempenho de Molodoy',
+          data: [65, 70, 72, 75, 78, 80, 85, 90], // Dados de exemplo (alterar conforme o desempenho real)
+          borderColor: function(context) {
+            const value = context.dataset.data[context.dataIndex];
+            if (value < 75) return 'red';
+            if (value >= 75 && value < 85) return 'yellow';
+            return 'green';
+          },
+          backgroundColor: 'rgba(0, 0, 0, 0)',
+          borderWidth: 3,
+          tension: 0.4
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 100
+          }
+        }
+      }
+    });
+
+    const ctxYuurih = document.getElementById('grafico-yuurih').getContext('2d');
+    const graficoYuurih = new Chart(ctxYuurih, {
+      type: 'line',
+      data: {
+        labels: ['2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025'],
+        datasets: [{
+          label: 'Desempenho de Yuurih',
+          data: [60, 65, 70, 80, 85, 90, 92, 94],
+          borderColor: function(context) {
+            const value = context.dataset.data[context.dataIndex];
+            if (value < 75) return 'red';
+            if (value >= 75 && value < 85) return 'yellow';
+            return 'green';
+          },
+          backgroundColor: 'rgba(0, 0, 0, 0)',
+          borderWidth: 3,
+          tension: 0.4
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 100
+          }
+        }
+      }
+    });
+
+     const ctxYekindar = document.getElementById('grafico-yekindar').getContext('2d');
+    const graficoYekindar = new Chart(ctxYekindar, {
+      type: 'line',
+      data: {
+        labels: ['2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025'],
+        datasets: [{
+          label: 'Desempenho de Yekindar',
+          data: [60, 65, 75, 80, 82, 85, 88, 90],
+          borderColor: function(context) {
+            const value = context.dataset.data[context.dataIndex];
+            if (value < 75) return 'red';
+            if (value >= 75 && value < 85) return 'yellow';
+            return 'green';
+          },
+          backgroundColor: 'rgba(0, 0, 0, 0)',
+          borderWidth: 3,
+          tension: 0.4
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 100
+          }
+        }
+      }
+    });
+
+    const ctxSidde = document.getElementById('grafico-sidde').getContext('2d');
+    const graficoSidde = new Chart(ctxSidde, {
+      type: 'line',
+      data: {
+        labels: ['2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025'],
+        datasets: [{
+          label: 'Desempenho de Sidde',
+          data: [50, 55, 60, 65, 70, 75, 80, 85], // Dados de exemplo
+          borderColor: function(context) {
+            const value = context.dataset.data[context.dataIndex];
+            if (value < 75) return 'red';
+            if (value >= 75 && value < 85) return 'yellow';
+            return 'green';
+          },
+          backgroundColor: 'rgba(0, 0, 0, 0)',
+          borderWidth: 3,
+          tension: 0.4
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 100
+          }
+        }
+      }
+    });
+    
+  
+  </script>
+<script>
+  // Referências dos elementos
+  const chatbotToggle = document.getElementById('chatbot-toggle');
+  const chatbot = document.getElementById('chatbot');
+  const chatbotClose = document.getElementById('chatbot-close');
+
+  // Função para abrir/fechar o chatbot
+  chatbotToggle.addEventListener('click', () => {
+    chatbot.style.display = chatbot.style.display === 'none' || chatbot.style.display === '' ? 'block' : 'none';
+  });
+
+  // Função para fechar o chatbot
+  chatbotClose.addEventListener('click', () => {
+    chatbot.style.display = 'none';
+  });
+</script>
+
+<script src="script.js"></script>
+
+<script>
+  const chatbotToggle = document.getElementById('chatbot-toggle');
+  const chatbot = document.getElementById('chatbot');
+  const chatbotClose = document.getElementById('chatbot-close');
+  const conteudoDinamico = document.getElementById('conteudo-dinamico');
+
+  chatbotToggle.addEventListener('click', () => {
+    chatbot.style.display = chatbot.style.display === 'none' || chatbot.style.display === '' ? 'block' : 'none';
+  });
+
+  chatbotClose.addEventListener('click', () => {
+    chatbot.style.display = 'none';
+  });
+
+  function mostrarNoticias() {
+    conteudoDinamico.innerHTML = `
+      <h3>Notícias sobre a FURIA CS:GO</h3>
+      <ul>
+        <li><a href="https://www.hltv.org/news/32112/furia-signs-molodoy" target="_blank">FURIA signs Molodoy</a></li>
+        <li><a href="https://www.hltv.org/news/32098/furia-bench-chelo" target="_blank">FURIA benches chelo</a></li>
+        <li><a href="https://www.hltv.org/news/32085/furia-adds-yekindar" target="_blank">FURIA adds YEKINDAR</a></li>
+      </ul>
+    `;
+  }
+
+  function mostrarAgenda() {
+    conteudoDinamico.innerHTML = `
+      <h3>Agenda FURIA CS:GO 2025</h3>
+      <ul>
+        <li><strong>Janeiro</strong>: ESL Challenger League Season 49</li>
+        <li><strong>Fevereiro</strong>: BLAST Premier: Spring Groups</li>
+        <li><strong>Março</strong>: IEM Katowice</li>
+        <li><strong>Abril</strong>: PGL Major Bucharest</li>
+        <li><strong>Maio</strong>: ESL Pro League Season 17</li>
+        <li><strong>Junho</strong>: BLAST Premier: Spring Finals</li>
+        <li><strong>Julho</strong>: DreamHack Masters Summer</li>
+        <li><strong>Agosto</strong>: ESL One Cologne</li>
+        <li><strong>Setembro</strong>: IEM Fall</li>
+        <li><strong>Outubro</strong>: ESL Pro League Season 18</li>
+        <li><strong>Novembro</strong>: BLAST Premier: Fall Finals</li>
+        <li><strong>Dezembro</strong>: PGL Major Stockholm</li>
+      </ul>
+    `;
+  }
+
+  function mostrarTitulos() {
+    conteudoDinamico.innerHTML = `
+      <h3>Títulos da FURIA CS:GO (2017–2025)</h3>
+      <ul>
+        <li><strong>2017</strong>: ESEA Global Challenge</li>
+        <li><strong>2019</strong>: ESL Pro League Season 12: North America</li>
+        <li><strong>2020</strong>: DreamHack Masters Spring 2020: North America</li>
+        <li><strong>2021</strong>: IEM XVI Katowice</li>
+        <li><strong>2022</strong>: ESL Pro League Season 15</li>
+        <li><strong>2023</strong>: BLAST Premier: Fall Finals</li>
+        <li><strong>2024</strong>: ESL Pro League Season 16</li>
+        <li><strong>2025</strong>: PGL Major Stockholm</li>
+      </ul>
+    `;
+  }
+
+  function mostrarJogadores() {
+    conteudoDinamico.innerHTML = `
+      <h3>Jogadores da FURIA CS:GO</h3>
+      <ul>
+        <li><strong>FalleN</strong>: Líder e AWPer veterano.</li>
+        <li><strong>KSCERATO</strong>: Rifler estrela e pilar da equipe.</li>
+        <li><strong>yuurih</strong>: Rifler versátil, essencial em clutchs.</li>
+        <li><strong>YEKINDAR</strong>: Jogador internacional, agressivo e decisivo.</li>
+        <li><strong>molodoy</strong>: Jogador jovem, com grande potencial.</li>
+      </ul>
+    `;
+  }
+
+  function irParaSuporte() {
+    window.open('https://www.furiacsg.com', '_blank');
+  }
+</script>
+
+<script>
+  // Definir o volume da música para 50% automaticamente
+  const musica = document.getElementById('musica');
+  musica.volume = 0.1;  // Ajusta o volume para 50% do máximo
+</script>
+
+</body>
+</html>
+
+</html>
