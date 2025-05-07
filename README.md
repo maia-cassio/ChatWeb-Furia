@@ -34,7 +34,7 @@ Clone o repositório:
 bash
 Copiar
 Editar
-git clone https://github.com/seu-usuario/seu-repositorio.git
+git clone https://github.com/maia-cassio/ChatWeb-Furia
 Abra o arquivo index.html no navegador.
 
 Aproveite a experiência interativa!
